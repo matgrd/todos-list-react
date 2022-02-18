@@ -4,6 +4,8 @@ The project is a simple task list, where you can write your tasks, mark them as 
 
 ## Demo
 
+https://matgrd.github.io/todos-list-react/
+
 ## Used Technologies
 
 - HTML
