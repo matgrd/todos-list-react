@@ -8,12 +8,12 @@ import Container from "./Container";
 let tasks = [
   {
     content: "wypić kawę",
-    key: 1,
+    id: 1,
     done: true,
   },
   {
     content: "zasadzić drzewo",
-    key: 2,
+    id: 2,
     done: false,
   },
 ];
