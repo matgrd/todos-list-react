@@ -18,7 +18,7 @@ let tasks = [
   },
 ];
 
-let hideDoneTasks = false;
+let hideDone = false;
 
 function App() {
   return (
@@ -27,10 +27,8 @@ function App() {
       <Section title="Dodaj nowe zadanie" body={<Form />} />
       <Section
         title="Lista zadań"
-        body={<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />}
-        extraSectionContent={
-          <Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />
-        }
+        body={<Tasks tasks={tasks} hideDone={hideDone} />}
+        extraSectionContent={<Buttons tasks={tasks} hideDone={hideDone} />}
       />
     </Container>
   );
