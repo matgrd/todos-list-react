@@ -9,8 +9,8 @@ import Container from "./Container";
 function App() {
   const [hideDone, setHideDone] = React.useState(false);
   const [tasks, setTasks] = React.useState([
-    { content: "wypić kawę", id: 1, done: true },
-    { content: "zasadzić drzewo", id: 2, done: false },
+    { content: "wypić kawę", done: true, id: 1 },
+    { content: "zasadzić drzewo", done: false, id: 2 },
   ]);
 
   const toggleHideDone = () => {
@@ -42,10 +42,24 @@ function App() {
     );
   };
 
+  const addNewTask = (newTaskContent) => {
+    setTasks((tasks) => [
+      ...tasks,
+      {
+        content: newTaskContent,
+        done: false,
+        id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+      },
+    ]);
+  };
+
   return (
     <Container>
       <Header title="Lista zadań" />
-      <Section title="Dodaj nowe zadanie" body={<Form />} />
+      <Section
+        title="Dodaj nowe zadanie"
+        body={<Form addNewTask={addNewTask} />}
+      />
       <Section
         title="Lista zadań"
         body={
