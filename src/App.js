@@ -25,9 +25,11 @@ function App() {
     setTasks(
       tasks.map((task) => {
         if (task.id === id) {
-          return { ...task, done: !task.done };
+          return {
+            ...task,
+            done: !task.done,
+          };
         }
-
         return task;
       })
     );
@@ -43,14 +45,19 @@ function App() {
   };
 
   const addNewTask = (newTaskContent) => {
-    setTasks((tasks) => [
-      ...tasks,
-      {
-        content: newTaskContent,
-        done: false,
-        id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
-      },
-    ]);
+    setTasks((tasks) => {
+      if (newTaskContent !== "") {
+        return [
+          ...tasks,
+          {
+            content: newTaskContent,
+            done: false,
+            id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+          },
+        ];
+      }
+      return tasks;
+    });
   };
 
   return (
